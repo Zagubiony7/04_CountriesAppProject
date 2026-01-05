@@ -61,17 +61,3 @@ const Home = () => {
 };
 
 export default Home;
-// https://restcountries.com/v3.1/all
-
-// const findCountry = async (e: React.ChangeEvent<HTMLFormElement>, name: string) => {
-//   e.preventDefault();
-//   try {
-//     const res = await axios.get(`https://restcountries.com/v3.1/name/${name}`);
-//     setCountriesToRender(res.data);
-//   } catch (error) {
-//     alert("Ups, Try again.");
-//     setCountryName("");
-//     setCountriesToRender(allCountries);
-//     console.log(error);
-//   }
-// };
