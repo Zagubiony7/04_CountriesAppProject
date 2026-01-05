@@ -4,11 +4,12 @@ import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import Countries from "../components/Countries/Countries";
 import axios from "axios";
+import { type COUNTRY_DATA_TYPES } from "../../data";
 
 const Home = () => {
   const [countryName, setCountryName] = useState("");
-  const [allCountries, setAllCountries] = useState([]);
-  const [countriesToRender, setCountriesToRender] = useState([]);
+  const [allCountries, setAllCountries] = useState<COUNTRY_DATA_TYPES[]>([]);
+  const [countriesToRender, setCountriesToRender] = useState<COUNTRY_DATA_TYPES[]>([]);
   // FILTER COUNTRIES DISPLAY FUNCTION
   const filterCountriesDisplay = (filterMethod: { region: string; filter: boolean }) => {
     if (!filterMethod.filter) {
@@ -20,18 +21,41 @@ const Home = () => {
   // API FUNCTION
   useEffect(() => {
     const countriesCall = async () => {
-      const res = await axios.get(
-        "https://restcountries.com/v3.1/all?fields=name,region,capital,population,flags,subregion,currencies,languages,borders"
-      );
-      setCountriesToRender(res.data);
-      setAllCountries(res.data);
+      try {
+        const res = await axios.get(
+          "https://restcountries.com/v3.1/all?fields=name,region,capital,population,flags,subregion,currencies,languages,borders"
+        );
+        setCountriesToRender(res.data);
+        setAllCountries(res.data);
+      } catch (err) {
+        console.log(err);
+      }
     };
     countriesCall();
   }, []);
+
+  // Find Country
+  const findCountry = (country: string) => {
+    const nameOfCountry = country.toLowerCase();
+    const displayCounty = allCountries.filter((c) => c.name.common.toLowerCase().includes(nameOfCountry));
+    if (displayCounty.length >= 1) {
+      setCountriesToRender(displayCounty);
+    } else {
+      alert("Country not found, try again");
+      setCountryName("");
+      setCountriesToRender(allCountries);
+    }
+  };
+  console.log(countriesToRender);
   return (
     <div>
       <Header />
-      <SearchBar countryName={countryName} setCountryName={setCountryName} filterCountriesDisplay={filterCountriesDisplay} />
+      <SearchBar
+        countryName={countryName}
+        setCountryName={setCountryName}
+        filterCountriesDisplay={filterCountriesDisplay}
+        findCountry={findCountry}
+      />
       <Countries countriesToRender={countriesToRender} />
     </div>
   );
@@ -39,3 +63,16 @@ const Home = () => {
 
 export default Home;
 // https://restcountries.com/v3.1/all
+
+// const findCountry = async (e: React.ChangeEvent<HTMLFormElement>, name: string) => {
+//   e.preventDefault();
+//   try {
+//     const res = await axios.get(`https://restcountries.com/v3.1/name/${name}`);
+//     setCountriesToRender(res.data);
+//   } catch (error) {
+//     alert("Ups, Try again.");
+//     setCountryName("");
+//     setCountriesToRender(allCountries);
+//     console.log(error);
+//   }
+// };

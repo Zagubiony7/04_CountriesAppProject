@@ -14,7 +14,7 @@ const Country = ({ country }: CountryProps) => {
       <div className="country-details">
         <h1>{common}</h1>
         <p>
-          Population: <span> {population}</span>
+          Population: <span> {new Intl.NumberFormat("us-US").format(+population)}</span>
         </p>
         <p>
           Region: <span> {region}</span>

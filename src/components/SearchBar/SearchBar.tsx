@@ -3,7 +3,7 @@ import FilterDropdown from "../features/FilterDropdown";
 import { type SearchBarProps } from "../../../data";
 import { useState } from "react";
 
-const SearchBar = ({ countryName, setCountryName, filterCountriesDisplay }: SearchBarProps) => {
+const SearchBar = ({ countryName, setCountryName, filterCountriesDisplay, findCountry }: SearchBarProps) => {
   const [filter, setFilter] = useState({ region: "", filter: false });
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
   // FUNCTION THAT TELL US WHAT KIND OF REGION WE NEED TO FILTER
@@ -23,7 +23,10 @@ const SearchBar = ({ countryName, setCountryName, filterCountriesDisplay }: Sear
         type="text"
         placeholder="Search for a country"
         value={countryName}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCountryName(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setCountryName(e.target.value);
+          findCountry(countryName);
+        }}
       />
       {/* prettier-ignore */}
       <FilterDropdown>{regions.map((region) => (<p key={region} onClick={handleSetFilterMethod} id={region} style={filter.filter && filter.region === region ? {backgroundColor: "#f2f0f0"} : {}}>{region}</p>))}</FilterDropdown>
