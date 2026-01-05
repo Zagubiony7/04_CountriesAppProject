@@ -43,3 +43,10 @@
 .dropdown p:hover {
   background-color: #f2f0f0;
 }
+
+@media (max-width: 614px) {
+  .filter-by-region {
+    min-width: 19.383rem;
+    max-width: 19.383rem;
+  }
+}

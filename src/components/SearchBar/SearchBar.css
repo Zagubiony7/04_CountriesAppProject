@@ -21,3 +21,15 @@
   font-size: 1.6rem;
   letter-spacing: 0.1rem;
 }
+
+@media (max-width: 614px) {
+  .search-bar input {
+    padding: 2rem 3rem 2rem 1rem;
+    min-width: 19.383rem;
+    max-width: 19.383rem;
+    background: url("../../assets/search.png") no-repeat 16rem 1.5rem;
+  }
+  .search-bar input::placeholder {
+    font-size: 1.4rem;
+  }
+}

@@ -46,7 +46,6 @@ const Home = () => {
       setCountriesToRender(allCountries);
     }
   };
-  console.log(countriesToRender);
   return (
     <div>
       <Header />

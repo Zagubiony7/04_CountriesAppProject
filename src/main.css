@@ -14,3 +14,17 @@ body {
   background-color: hsl(0, 100%, 100%);
   min-height: 100vh;
 }
+
+@media (max-width: 614px) {
+  header {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 384px) {
+  body {
+    display: grid;
+    place-items: center;
+  }
+}
