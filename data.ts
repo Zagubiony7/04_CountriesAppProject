@@ -10,6 +10,7 @@ export type CountryProps = {
 export type SearchBarProps = {
   countryName: string;
   setCountryName: Dispatch<SetStateAction<string>>;
+  filterCountriesDisplay: (filterMethod: { region: string; filter: boolean }) => void;
 };
 
 export type Countries = {

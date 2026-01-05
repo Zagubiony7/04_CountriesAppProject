@@ -4,7 +4,8 @@
 }
 .country-flag {
   width: 31rem;
-  max-height: 26rem;
+  min-height: 21rem;
+  max-height: 21rem;
   border-radius: 0.5rem 0.5rem 0 0rem;
 }
 

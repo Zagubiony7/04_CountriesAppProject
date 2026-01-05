@@ -3,10 +3,11 @@ import FilterDropdown from "../features/FilterDropdown";
 import { type SearchBarProps } from "../../../data";
 import { useState } from "react";
 
-const SearchBar = ({ countryName, setCountryName, filterCountries }: SearchBarProps) => {
+const SearchBar = ({ countryName, setCountryName, filterCountriesDisplay }: SearchBarProps) => {
   const [filter, setFilter] = useState({ region: "", filter: false });
   const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
+  // FUNCTION THAT TELL US WHAT KIND OF REGION WE NEED TO FILTER
   const handleSetFilterMethod = (e: React.MouseEvent<HTMLParagraphElement>) => {
     const region = e.currentTarget.id;
     const isFiltered = !filter.filter;
@@ -15,7 +16,7 @@ const SearchBar = ({ countryName, setCountryName, filterCountries }: SearchBarPr
       filter: isFiltered,
     };
     setFilter(newFilter);
-    filterCountries(newFilter);
+    filterCountriesDisplay(newFilter);
   };
   return (
     <div className="search-bar">

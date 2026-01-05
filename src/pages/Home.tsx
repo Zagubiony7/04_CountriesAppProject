@@ -9,22 +9,18 @@ const Home = () => {
   const [countryName, setCountryName] = useState("");
   const [countriesToRender, setCountriesToRender] = useState(COUNTRIES.slice(0, 8));
 
-  // FILTER COUNTRIES FUNCTION
-  const filterCountries = (filterMethod: { region: string; filter: boolean }) => {
+  // FILTER COUNTRIES DISPLAY FUNCTION
+  const filterCountriesDisplay = (filterMethod: { region: string; filter: boolean }) => {
     if (!filterMethod.filter) {
       setCountriesToRender(COUNTRIES.slice(0, 8));
     } else {
-      setCountriesToRender((prevCountries) => {
-        const newCountriesToRender = prevCountries.slice();
-        return newCountriesToRender.filter(({ region }) => region === filterMethod.region);
-      });
+      setCountriesToRender((prevCountries) => prevCountries.filter(({ region }) => region === filterMethod.region));
     }
   };
-  console.log(countriesToRender);
   return (
     <div>
       <Header />
-      <SearchBar countryName={countryName} setCountryName={setCountryName} filterCountries={filterCountries} />
+      <SearchBar countryName={countryName} setCountryName={setCountryName} filterCountriesDisplay={filterCountriesDisplay} />
       <Countries countriesToRender={countriesToRender} />
     </div>
   );
