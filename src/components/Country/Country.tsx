@@ -1,12 +1,18 @@
 import "./Country.css";
 import { type CountryProps } from "../../../data";
-
-const Country = ({ name, flag, population, region, capital }: CountryProps) => {
+const Country = ({ country }: CountryProps) => {
+  const {
+    name: { common },
+    flags: { png, alt },
+    population,
+    region,
+    capital: [capital],
+  } = country;
   return (
-    <li key={name} className="country">
-      <img src={flag} alt={`${name} flag image`} className="country-flag" />
+    <li key={common} className="country">
+      <img src={png} alt={alt} className="country-flag" />
       <div className="country-details">
-        <h1>{name}</h1>
+        <h1>{common}</h1>
         <p>
           Population: <span> {population}</span>
         </p>

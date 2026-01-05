@@ -5,8 +5,7 @@ import { useState } from "react";
 
 const SearchBar = ({ countryName, setCountryName, filterCountriesDisplay }: SearchBarProps) => {
   const [filter, setFilter] = useState({ region: "", filter: false });
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
-
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
   // FUNCTION THAT TELL US WHAT KIND OF REGION WE NEED TO FILTER
   const handleSetFilterMethod = (e: React.MouseEvent<HTMLParagraphElement>) => {
     const region = e.currentTarget.id;

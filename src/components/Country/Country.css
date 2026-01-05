@@ -1,12 +1,20 @@
 .country {
-  border-radius: 1rem;
   box-shadow: 1px 1px 13px -2px rgba(181, 181, 187, 1);
+  border-radius: 1rem;
+  width: 33rem;
+  transition: transform 0.3s linear;
 }
+
+.country:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 .country-flag {
-  width: 31rem;
+  border-radius: 0.5rem 0.5rem 0 0rem;
+  width: 100%;
   min-height: 21rem;
   max-height: 21rem;
-  border-radius: 0.5rem 0.5rem 0 0rem;
 }
 
 .country-details {
@@ -14,14 +22,14 @@
 }
 
 .country-details h1 {
-  font-size: 2.2rem;
   padding-bottom: 3rem;
+  font-size: 2.2rem;
 }
 
 .country-details p {
-  font-size: 1.8rem;
-  font-weight: bold;
   padding: 0.5rem 0 0.5rem 0;
+  font-weight: bold;
+  font-size: 1.8rem;
 }
 
 .country-details p span {

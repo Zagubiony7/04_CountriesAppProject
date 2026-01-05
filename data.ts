@@ -1,11 +1,4 @@
 import type { Dispatch, SetStateAction } from "react";
-export type CountryProps = {
-  flag: string;
-  name: string;
-  population: string | number;
-  region: string;
-  capital: string | undefined;
-};
 
 export type SearchBarProps = {
   countryName: string;
@@ -15,4 +8,15 @@ export type SearchBarProps = {
 
 export type Countries = {
   onFilterMethod: (arg: string) => void;
+};
+
+export type CountryProps = {
+  country: {
+    name: { common: string };
+    flags: { png: string; alt: string };
+    population: string;
+    region: string;
+    capital: [capital: string];
+    currencies: { XCD: { name: string }; symbol: string };
+  };
 };

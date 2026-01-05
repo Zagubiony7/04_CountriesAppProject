@@ -1,22 +1,33 @@
+import { useEffect, useState } from "react";
 import "./Home.css";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import Countries from "../components/Countries/Countries";
-import { useState } from "react";
-import COUNTRIES from "../../data.json";
+import axios from "axios";
 
 const Home = () => {
   const [countryName, setCountryName] = useState("");
-  const [countriesToRender, setCountriesToRender] = useState(COUNTRIES.slice(0, 8));
-
+  const [allCountries, setAllCountries] = useState([]);
+  const [countriesToRender, setCountriesToRender] = useState([]);
   // FILTER COUNTRIES DISPLAY FUNCTION
   const filterCountriesDisplay = (filterMethod: { region: string; filter: boolean }) => {
     if (!filterMethod.filter) {
-      setCountriesToRender(COUNTRIES.slice(0, 8));
+      setCountriesToRender(allCountries);
     } else {
       setCountriesToRender((prevCountries) => prevCountries.filter(({ region }) => region === filterMethod.region));
     }
   };
+  // API FUNCTION
+  useEffect(() => {
+    const countriesCall = async () => {
+      const res = await axios.get(
+        "https://restcountries.com/v3.1/all?fields=name,region,capital,population,flags,subregion,currencies,languages,borders"
+      );
+      setCountriesToRender(res.data);
+      setAllCountries(res.data);
+    };
+    countriesCall();
+  }, []);
   return (
     <div>
       <Header />
@@ -27,3 +38,4 @@ const Home = () => {
 };
 
 export default Home;
+// https://restcountries.com/v3.1/all

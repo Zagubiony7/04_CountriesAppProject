@@ -1,11 +1,12 @@
 import "./Countries.css";
 import Country from "../Country/Country";
+import { type CountryProps } from "../../../data";
 
-const Countries = ({ countriesToRender }) => {
+const Countries = ({ countriesToRender }: { countriesToRender: CountryProps[] }) => {
   return (
     <ul className="countries">
-      {countriesToRender.map(({ flag, name, population, region, capital }) => (
-        <Country key={name} flag={flag} name={name} population={population} region={region} capital={capital} />
+      {countriesToRender.map((countryData, i: number) => (
+        <Country key={i} country={countryData} />
       ))}
     </ul>
   );

@@ -32,6 +32,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  z-index: 1;
 }
 .dropdown p {
   padding: 1rem;
