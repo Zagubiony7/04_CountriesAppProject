@@ -1,0 +1,28 @@
+.country {
+  border-radius: 1rem;
+  box-shadow: 1px 1px 13px -2px rgba(181, 181, 187, 1);
+}
+.country-flag {
+  width: 31rem;
+  max-height: 26rem;
+  border-radius: 0.5rem 0.5rem 0 0rem;
+}
+
+.country-details {
+  padding: 3rem;
+}
+
+.country-details h1 {
+  font-size: 2.2rem;
+  padding-bottom: 3rem;
+}
+
+.country-details p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+.country-details p span {
+  font-weight: normal;
+}

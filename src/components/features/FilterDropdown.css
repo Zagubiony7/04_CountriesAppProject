@@ -1,0 +1,44 @@
+.filter-methods {
+  position: relative;
+}
+.filter-by-region {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  font-size: 1.6rem;
+  box-shadow: 1px 0px 13px -1px rgba(181, 181, 187, 1);
+  background-color: #fff;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.filter-by-region img {
+  width: 2rem;
+}
+
+.dropdown {
+  box-shadow: 1px 1px 13px -2px rgba(181, 181, 187, 1);
+  background-color: #fff;
+  border-radius: 1rem;
+  position: absolute;
+  width: 100%;
+  padding: 2rem;
+  top: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.dropdown p {
+  padding: 1rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+.dropdown p:hover {
+  background-color: #f2f0f0;
+}
